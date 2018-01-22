@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		348E66502012479C00AE9C33 /* rain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348E664F2012479C00AE9C33 /* rain.wav */; };
+		348E665220124B8900AE9C33 /* openmusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348E665120124B8900AE9C33 /* openmusic.wav */; };
+		A8BAA25A2011874100D0FC41 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BAA2592011874100D0FC41 /* SoundManager.swift */; };
+		A8BAA25E201188EF00D0FC41 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BAA25D201188EF00D0FC41 /* AVFoundation.framework */; };
+		A8BAA26A2011901600D0FC41 /* short.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8BAA2692011901600D0FC41 /* short.wav */; };
+		A8BAA26C201191D300D0FC41 /* bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8BAA26B201191D300D0FC41 /* bell.wav */; };
+		A8BAA26E2011938700D0FC41 /* silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8BAA26D2011938700D0FC41 /* silence.wav */; };
+		A8FAFC262011314700552397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FAFC252011314700552397 /* AppDelegate.swift */; };
+		A8FAFC282011314700552397 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FAFC272011314700552397 /* MapViewController.swift */; };
+		A8FAFC2B2011314700552397 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8FAFC292011314700552397 /* Main.storyboard */; };
+		A8FAFC2D2011314700552397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8FAFC2C2011314700552397 /* Assets.xcassets */; };
+		A8FAFC302011314700552397 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8FAFC2E2011314700552397 /* LaunchScreen.storyboard */; };
+		A8FAFC3B2011314700552397 /* treasure_huntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FAFC3A2011314700552397 /* treasure_huntTests.swift */; };
+		A8FAFC462011314700552397 /* treasure_huntUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FAFC452011314700552397 /* treasure_huntUITests.swift */; };
+		A8FAFC542011488500552397 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FAFC532011488500552397 /* MainViewController.swift */; };
+		A8FAFC562011618300552397 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FAFC552011618300552397 /* ResultViewController.swift */; };
+		A8FAFC58201173BD00552397 /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FAFC57201173BD00552397 /* HintViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A8FAFC372011314700552397 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8FAFC1A2011314700552397 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A8FAFC212011314700552397;
+			remoteInfo = treasure_hunt;
+		};
+		A8FAFC422011314700552397 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A8FAFC1A2011314700552397 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A8FAFC212011314700552397;
+			remoteInfo = treasure_hunt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		348E664F2012479C00AE9C33 /* rain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = rain.wav; path = ../../../../../../Desktop/Sounds/rain.wav; sourceTree = "<group>"; };
+		348E665120124B8900AE9C33 /* openmusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = openmusic.wav; sourceTree = "<group>"; };
+		A8BAA2592011874100D0FC41 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		A8BAA25D201188EF00D0FC41 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A8BAA2692011901600D0FC41 /* short.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = short.wav; sourceTree = "<group>"; };
+		A8BAA26B201191D300D0FC41 /* bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bell.wav; sourceTree = "<group>"; };
+		A8BAA26D2011938700D0FC41 /* silence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = silence.wav; sourceTree = "<group>"; };
+		A8FAFC222011314700552397 /* treasure_hunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = treasure_hunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8FAFC252011314700552397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A8FAFC272011314700552397 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A8FAFC2A2011314700552397 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A8FAFC2C2011314700552397 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A8FAFC2F2011314700552397 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A8FAFC312011314700552397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8FAFC362011314700552397 /* treasure_huntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = treasure_huntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8FAFC3A2011314700552397 /* treasure_huntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = treasure_huntTests.swift; sourceTree = "<group>"; };
+		A8FAFC3C2011314700552397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8FAFC412011314700552397 /* treasure_huntUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = treasure_huntUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8FAFC452011314700552397 /* treasure_huntUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = treasure_huntUITests.swift; sourceTree = "<group>"; };
+		A8FAFC472011314700552397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8FAFC532011488500552397 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A8FAFC552011618300552397 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		A8FAFC57201173BD00552397 /* HintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A8FAFC1F2011314700552397 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8BAA25E201188EF00D0FC41 /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8FAFC332011314700552397 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8FAFC3E2011314700552397 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A8BAA25B2011878200D0FC41 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				A8BAA26D2011938700D0FC41 /* silence.wav */,
+				A8BAA26B201191D300D0FC41 /* bell.wav */,
+				348E665120124B8900AE9C33 /* openmusic.wav */,
+				A8BAA2692011901600D0FC41 /* short.wav */,
+				348E664F2012479C00AE9C33 /* rain.wav */,
+			);
+			path = sound;
+			sourceTree = "<group>";
+		};
+		A8BAA25C201188EF00D0FC41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8BAA25D201188EF00D0FC41 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8FAFC192011314700552397 = {
+			isa = PBXGroup;
+			children = (
+				A8BAA25B2011878200D0FC41 /* sound */,
+				A8FAFC242011314700552397 /* treasure_hunt */,
+				A8FAFC392011314700552397 /* treasure_huntTests */,
+				A8FAFC442011314700552397 /* treasure_huntUITests */,
+				A8FAFC232011314700552397 /* Products */,
+				A8BAA25C201188EF00D0FC41 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A8FAFC232011314700552397 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A8FAFC222011314700552397 /* treasure_hunt.app */,
+				A8FAFC362011314700552397 /* treasure_huntTests.xctest */,
+				A8FAFC412011314700552397 /* treasure_huntUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A8FAFC242011314700552397 /* treasure_hunt */ = {
+			isa = PBXGroup;
+			children = (
+				A8FAFC252011314700552397 /* AppDelegate.swift */,
+				A8FAFC272011314700552397 /* MapViewController.swift */,
+				A8FAFC292011314700552397 /* Main.storyboard */,
+				A8FAFC2C2011314700552397 /* Assets.xcassets */,
+				A8FAFC2E2011314700552397 /* LaunchScreen.storyboard */,
+				A8FAFC312011314700552397 /* Info.plist */,
+				A8FAFC532011488500552397 /* MainViewController.swift */,
+				A8FAFC552011618300552397 /* ResultViewController.swift */,
+				A8FAFC57201173BD00552397 /* HintViewController.swift */,
+				A8BAA2592011874100D0FC41 /* SoundManager.swift */,
+			);
+			path = treasure_hunt;
+			sourceTree = "<group>";
+		};
+		A8FAFC392011314700552397 /* treasure_huntTests */ = {
+			isa = PBXGroup;
+			children = (
+				A8FAFC3A2011314700552397 /* treasure_huntTests.swift */,
+				A8FAFC3C2011314700552397 /* Info.plist */,
+			);
+			path = treasure_huntTests;
+			sourceTree = "<group>";
+		};
+		A8FAFC442011314700552397 /* treasure_huntUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A8FAFC452011314700552397 /* treasure_huntUITests.swift */,
+				A8FAFC472011314700552397 /* Info.plist */,
+			);
+			path = treasure_huntUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A8FAFC212011314700552397 /* treasure_hunt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8FAFC4A2011314700552397 /* Build configuration list for PBXNativeTarget "treasure_hunt" */;
+			buildPhases = (
+				A8FAFC1E2011314700552397 /* Sources */,
+				A8FAFC1F2011314700552397 /* Frameworks */,
+				A8FAFC202011314700552397 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = treasure_hunt;
+			productName = treasure_hunt;
+			productReference = A8FAFC222011314700552397 /* treasure_hunt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A8FAFC352011314700552397 /* treasure_huntTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8FAFC4D2011314700552397 /* Build configuration list for PBXNativeTarget "treasure_huntTests" */;
+			buildPhases = (
+				A8FAFC322011314700552397 /* Sources */,
+				A8FAFC332011314700552397 /* Frameworks */,
+				A8FAFC342011314700552397 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A8FAFC382011314700552397 /* PBXTargetDependency */,
+			);
+			name = treasure_huntTests;
+			productName = treasure_huntTests;
+			productReference = A8FAFC362011314700552397 /* treasure_huntTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A8FAFC402011314700552397 /* treasure_huntUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8FAFC502011314700552397 /* Build configuration list for PBXNativeTarget "treasure_huntUITests" */;
+			buildPhases = (
+				A8FAFC3D2011314700552397 /* Sources */,
+				A8FAFC3E2011314700552397 /* Frameworks */,
+				A8FAFC3F2011314700552397 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A8FAFC432011314700552397 /* PBXTargetDependency */,
+			);
+			name = treasure_huntUITests;
+			productName = treasure_huntUITests;
+			productReference = A8FAFC412011314700552397 /* treasure_huntUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A8FAFC1A2011314700552397 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Rachel Ng";
+				TargetAttributes = {
+					A8FAFC212011314700552397 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					A8FAFC352011314700552397 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A8FAFC212011314700552397;
+					};
+					A8FAFC402011314700552397 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A8FAFC212011314700552397;
+					};
+				};
+			};
+			buildConfigurationList = A8FAFC1D2011314700552397 /* Build configuration list for PBXProject "treasure_hunt" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A8FAFC192011314700552397;
+			productRefGroup = A8FAFC232011314700552397 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A8FAFC212011314700552397 /* treasure_hunt */,
+				A8FAFC352011314700552397 /* treasure_huntTests */,
+				A8FAFC402011314700552397 /* treasure_huntUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A8FAFC202011314700552397 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8BAA26E2011938700D0FC41 /* silence.wav in Resources */,
+				A8FAFC302011314700552397 /* LaunchScreen.storyboard in Resources */,
+				A8FAFC2D2011314700552397 /* Assets.xcassets in Resources */,
+				A8BAA26C201191D300D0FC41 /* bell.wav in Resources */,
+				348E665220124B8900AE9C33 /* openmusic.wav in Resources */,
+				A8FAFC2B2011314700552397 /* Main.storyboard in Resources */,
+				348E66502012479C00AE9C33 /* rain.wav in Resources */,
+				A8BAA26A2011901600D0FC41 /* short.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8FAFC342011314700552397 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8FAFC3F2011314700552397 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A8FAFC1E2011314700552397 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8FAFC542011488500552397 /* MainViewController.swift in Sources */,
+				A8FAFC282011314700552397 /* MapViewController.swift in Sources */,
+				A8FAFC58201173BD00552397 /* HintViewController.swift in Sources */,
+				A8FAFC262011314700552397 /* AppDelegate.swift in Sources */,
+				A8FAFC562011618300552397 /* ResultViewController.swift in Sources */,
+				A8BAA25A2011874100D0FC41 /* SoundManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8FAFC322011314700552397 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8FAFC3B2011314700552397 /* treasure_huntTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8FAFC3D2011314700552397 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8FAFC462011314700552397 /* treasure_huntUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A8FAFC382011314700552397 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A8FAFC212011314700552397 /* treasure_hunt */;
+			targetProxy = A8FAFC372011314700552397 /* PBXContainerItemProxy */;
+		};
+		A8FAFC432011314700552397 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A8FAFC212011314700552397 /* treasure_hunt */;
+			targetProxy = A8FAFC422011314700552397 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A8FAFC292011314700552397 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8FAFC2A2011314700552397 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A8FAFC2E2011314700552397 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8FAFC2F2011314700552397 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A8FAFC482011314700552397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A8FAFC492011314700552397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A8FAFC4B2011314700552397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R2AJM7P827;
+				INFOPLIST_FILE = treasure_hunt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mancng.coldcalltwo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A8FAFC4C2011314700552397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R2AJM7P827;
+				INFOPLIST_FILE = treasure_hunt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mancng.coldcalltwo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A8FAFC4E2011314700552397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LAP87QP52V;
+				INFOPLIST_FILE = treasure_huntTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mancng.treasure-huntTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/treasure_hunt.app/treasure_hunt";
+			};
+			name = Debug;
+		};
+		A8FAFC4F2011314700552397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LAP87QP52V;
+				INFOPLIST_FILE = treasure_huntTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mancng.treasure-huntTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/treasure_hunt.app/treasure_hunt";
+			};
+			name = Release;
+		};
+		A8FAFC512011314700552397 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LAP87QP52V;
+				INFOPLIST_FILE = treasure_huntUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mancng.treasure-huntUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = treasure_hunt;
+			};
+			name = Debug;
+		};
+		A8FAFC522011314700552397 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LAP87QP52V;
+				INFOPLIST_FILE = treasure_huntUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mancng.treasure-huntUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = treasure_hunt;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A8FAFC1D2011314700552397 /* Build configuration list for PBXProject "treasure_hunt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8FAFC482011314700552397 /* Debug */,
+				A8FAFC492011314700552397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8FAFC4A2011314700552397 /* Build configuration list for PBXNativeTarget "treasure_hunt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8FAFC4B2011314700552397 /* Debug */,
+				A8FAFC4C2011314700552397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8FAFC4D2011314700552397 /* Build configuration list for PBXNativeTarget "treasure_huntTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8FAFC4E2011314700552397 /* Debug */,
+				A8FAFC4F2011314700552397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8FAFC502011314700552397 /* Build configuration list for PBXNativeTarget "treasure_huntUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8FAFC512011314700552397 /* Debug */,
+				A8FAFC522011314700552397 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A8FAFC1A2011314700552397 /* Project object */;
+}
