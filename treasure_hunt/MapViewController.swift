@@ -1,19 +1,20 @@
-//
-//  ViewController.swift
-//  treasure_hunt
-//
-//  Created by Rachel Ng on 1/18/18.
-//  Copyright © 2018 Rachel Ng. All rights reserved.
-//
-
 import UIKit
 import MapKit
 import CoreLocation
 import AudioToolbox
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate,PassValueDelegate{
+    func RoleToMap(PassFirst: String) {
+        
+    }
+    @IBAction func BackPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    var imgeNameIndex:Int?
+    weak var delegate:PassValueDelegate?
     var arrLatitude:[Double]=[0.0]
     var arrLongtitude:[Double]=[0.0]
+    var imgRealName = ["PikachuTwo.ico","cutty.ico","elephant.ico","mouse.ico"]
     @IBOutlet var myMap: MKMapView!
     
     @IBOutlet var digButton: UIButton!
@@ -111,18 +112,44 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         seconds -= 1     //This will decrement(count down)the seconds.
        
     }
+    var clickCounter = 1
+    //counter when click the screeen, update what pikachu said
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        clickCounter = clickCounter+1
+        print("the times you touch screen is : ")
+        print(clickCounter)
+        self.myMap.delegate = self
+        
+        if clickCounter%4 == 1{
+            objectAnnotation.title = "I wana be Home:Coding-Dojo!!!"
+            
+        }
+        else if clickCounter%4 == 2{
+            objectAnnotation.title = "GoGoGo,Where is my Treasure?"
+        }
+        else if clickCounter%4 == 3{
+            objectAnnotation.title = "Pokemon Is Cool!"
+        }
+        else if clickCounter%4 == 0{
+            objectAnnotation.title = "Secret Message! Jason feel hungry again!"
+        }
+    }
+    
     //set up button "Jump" and "Stay"
     @IBAction func StayHere(_ sender: UIButton) {
-        locManager.stopUpdatingLocation()
         
-    }
+            let longPressForActionSheet = UILongPressGestureRecognizer(target: self,action:#selector(getActionSheet))
+        
+            longPressForActionSheet.minimumPressDuration = 0.1
+            myMap.addGestureRecognizer(longPressForActionSheet)
+            
+        
+    
+}
 
     
     @IBAction func ChanePlace(_ sender: UIButton) {
-        locManager.startUpdatingLocation()
-       
-        //add timer if we need it
-        //runTimer()
+        
         
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -140,7 +167,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         myMap.centerCoordinate = CLLocationCoordinate2DMake(finalLatitude, finalLongitude)
        //set pin animation
         let pinLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(finalLatitude, finalLongitude)
-        let objectAnnotation = MKPointAnnotation()
+        let objectAnnotation = CustomPointAnnotation()
+        objectAnnotation.imageName = "\(imgRealName[imgeNameIndex!])"
         objectAnnotation.coordinate = pinLocation
         objectAnnotation.title = "ME"
         self.myMap.addAnnotation(objectAnnotation)
@@ -154,9 +182,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("failed", error)
     }
-
+    //declare mutiple pokemon pin
+    class CustomPointAnnotation:MKPointAnnotation{
+        var imageName: String!
+    }
+   var objectAnnotation = CustomPointAnnotation()
+    var NPCOnePin = CustomPointAnnotation()
+    var NPCTwoPin = CustomPointAnnotation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //show compass and so on
         myMap.showsCompass = true
         myMap.showsScale = true
@@ -179,35 +215,109 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         //intial location to coding-dojo
         myMap.centerCoordinate = CLLocationCoordinate2DMake(finalLatitude, finalLongitude)
         
-      
         //add new pin
         let longPressGestureRecogn = UILongPressGestureRecognizer(target: self, action:#selector(addAnnotation(press:)))
-        longPressGestureRecogn.minimumPressDuration=0.5
+        longPressGestureRecogn.minimumPressDuration=0.2
         myMap.addGestureRecognizer(longPressGestureRecogn)
+        self.myMap.delegate = self
         
         let pinLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(finalLatitude, finalLongitude)
-        let objectAnnotation = MKPointAnnotation()
         objectAnnotation.coordinate = pinLocation
-        objectAnnotation.title = "I am at Home:Coding-Dojo"
+        objectAnnotation.imageName = "\(imgRealName[imgeNameIndex!])"
+        objectAnnotation.title = "Go Go Go~ Where is my treasure?"
         self.myMap.addAnnotation(objectAnnotation)
+       
+        let NPCOnepinLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(40, -74)
+        NPCOnePin.coordinate = NPCOnepinLocation
+        NPCOnePin.imageName = "NPCOne.ico"
+        NPCOnePin.title = "Hi,I am a NPC..."
+        NPCOnePin.subtitle = "Good Morning,Good Afternoon and Good Evening"
+        self.myMap.addAnnotation(NPCOnePin)
+        
         }
     
+
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay:overlay)
         renderer.strokeColor = UIColor.red
         renderer.lineWidth = 3.0
         return renderer
     }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is MKPointAnnotation){
+           print("NOT REGISTERED AS MKPOINTANNOTATION")
+            return nil
+            
+        }
+        var annotationView = myMap.dequeueReusableAnnotationView(withIdentifier: "pokemonIdentifier")
+        if annotationView == nil{
+            annotationView = MKAnnotationView(annotation: annotation,reuseIdentifier: "pokemonIdentifier")
+            annotationView?.canShowCallout = true
+        }
+        else{
+            annotationView?.annotation = annotation
+        }
+        let Jason = annotation as! CustomPointAnnotation
+        annotationView!.image = UIImage(named: Jason.imageName)
+        return annotationView
+    }
+    
+    //a func to declare action sheet
+    @objc func getActionSheet(sender: UIButton ){
+        //decalre the action sheet
+        
+        let title = "Action sheet title"
+        let message = "action sheet message"
+        
+        
+        let optionalFourText = "Cancel"
+        //decalre the actionsheet
+        let actionSheet = UIAlertController(title: title, message: message,preferredStyle: UIAlertControllerStyle.actionSheet)
+        let ViewStatusActionSheet = UIAlertController(title: "Hi,Pokemon ", message: "Intelegent : 10            Health:10          Sight:10",preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let actionFour = UIAlertAction(title: optionalFourText, style: .default, handler: nil)
+        // declare a specific action
+        let ViewAction = UIAlertAction(title: "ViewStatus", style: .default) { (handler) in
+            
+            self.present(ViewStatusActionSheet,animated: true,completion: nil)
+        }
+        let EditAction = UIAlertAction(title: "Search Around", style: .default) { (handler) in
+            //GO TO Result View
+            if self.treasureLatitude-self.finalLatitude<15 && self.treasureLongitude-self.finalLongitude<15{
+                self.performSegue(withIdentifier: "gotWinner", sender: sender)
+            }
+                
+                //GO TO HINT View
+            else{ self.performSegue(withIdentifier: "needHint", sender: sender)
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+            }
+        }
+        let DeleteAction = UIAlertAction(title: "Delete", style: .default) { (handler) in
+            
+            
+            
+        }
+        //call the action
+        actionSheet.addAction(ViewAction)
+        actionSheet.addAction(EditAction)
+        actionSheet.addAction(DeleteAction)
+        actionSheet.addAction(actionFour)
+        ViewStatusActionSheet.addAction(actionFour)
+        //present the whole actionsheet
+               self.present(actionSheet, animated: true, completion: nil)
+    }
+  
     
     @objc func addAnnotation(press:UILongPressGestureRecognizer){
         if press.state == .began {
             let location = press.location(in: myMap)
             let coordinates = myMap.convert(location, toCoordinateFrom: myMap)
             dest1 = coordinates
-            let annotation = MKPointAnnotation()
+            let annotation = CustomPointAnnotation()
             annotation.coordinate = coordinates
+            annotation.imageName = "\(imgRealName[imgeNameIndex!])"
             annotation.title = "New of Me"
-            annotation.subtitle = "HI"
+            annotation.subtitle = "Keep Going"
             
             myMap.addAnnotation(annotation)
         }
@@ -219,6 +329,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     override func viewDidAppear(_ animated: Bool) {
         //soundManager.playSound(.rain)
         locManager.stopUpdatingLocation()
+      
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -1,10 +1,4 @@
-//
-//  MainViewController.swift
-//  treasure_hunt
-//
-//  Created by Rachel Ng on 1/18/18.
-//  Copyright © 2018 Rachel Ng. All rights reserved.
-//
+
 
 import UIKit
 
