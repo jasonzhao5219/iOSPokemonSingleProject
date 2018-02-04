@@ -1,20 +1,33 @@
 
 
 import UIKit
-
+import Canvas
 class MainViewController: UIViewController {
     var soundManager = SoundManager()
     @IBOutlet var titleImage: UIImageView!
     
-//    override func viewDidAppear(_ animated: Bool) {
+    @IBOutlet var animView: CSAnimationView!
+    
+   
+    @IBAction func GoPressed(_ sender: Any) {
+        animView.startCanvasAnimation()
+    }
+    
+    @IBAction func StartBtnPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "StartSegue", sender: sender)
+    }
+    //    override func viewDidAppear(_ animated: Bool) {
 //        soundManager.playSound(.openmusic)
 //
 //    }
     @IBAction func UwindBack(_ sender: UIStoryboardSegue) {
     }
+    override func viewDidAppear(_ animated: Bool) {
+        titleImage.startRotating()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleImage.startRotating()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +35,7 @@ class MainViewController: UIViewController {
     }
 
 }
+
 
 extension UIView {
     func startRotating(duration: Double = 4.0) {

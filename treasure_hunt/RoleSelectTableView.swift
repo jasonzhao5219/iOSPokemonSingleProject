@@ -3,7 +3,11 @@ import UIKit
 
 class RoleSelectTableViewController: UITableViewController {
     var elements = ["PikachuTwo.png","cutty.png","elephant.png","mouse.png"]
-    var testcell = ["hello","hello"]
+    
+    @IBAction func BackPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CustomCellOne"
         

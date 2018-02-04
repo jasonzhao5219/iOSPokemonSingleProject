@@ -2,14 +2,24 @@ import UIKit
 import MapKit
 import CoreLocation
 import AudioToolbox
-
+import CoreData
+import Canvas
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate,PassValueDelegate{
     func RoleToMap(PassFirst: String) {
         
     }
+    
+    @IBOutlet var animViewInMap: CSAnimationView!
+    
+    @IBAction func ShakeMePressed(_ sender: Any) {
+        animViewInMap.startCanvasAnimation()
+    }
+    
     @IBAction func BackPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    //Initial coredate context
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var imgeNameIndex:Int?
     weak var delegate:PassValueDelegate?
     var arrLatitude:[Double]=[0.0]
@@ -67,7 +77,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBAction func digButtonPressed(_ sender: UIButton) {
  
         //GO TO Result View
-        if treasureLatitude-finalLatitude<15 && treasureLongitude-finalLongitude<15{
+        if TreasureCounter>1 || (treasureLatitude-finalLatitude<15 && treasureLongitude-finalLongitude<15){
             performSegue(withIdentifier: "gotWinner", sender: sender)
         }
         
@@ -120,36 +130,48 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         print(clickCounter)
         self.myMap.delegate = self
         
-        if clickCounter%4 == 1{
+        if clickCounter%5 == 1{
             objectAnnotation.title = "I wana be Home:Coding-Dojo!!!"
             
         }
-        else if clickCounter%4 == 2{
+        else if clickCounter%5 == 2{
             objectAnnotation.title = "GoGoGo,Where is my Treasure?"
         }
-        else if clickCounter%4 == 3{
+        else if clickCounter%5 == 3{
             objectAnnotation.title = "Pokemon Is Cool!"
         }
-        else if clickCounter%4 == 0{
+        else if clickCounter%5 == 4{
             objectAnnotation.title = "Secret Message! Jason feel hungry again!"
+        }
+        else if clickCounter%5 == 0{
+            objectAnnotation.title = "I wanna learn more about iOS"
         }
     }
     
     //set up button "Jump" and "Stay"
+    let longPressForActionSheet = UILongPressGestureRecognizer(target: self,action:#selector(getActionSheet))
     @IBAction func StayHere(_ sender: UIButton) {
         
-            let longPressForActionSheet = UILongPressGestureRecognizer(target: self,action:#selector(getActionSheet))
-        
+        let longPressForActionSheet = UILongPressGestureRecognizer(target: self,action:#selector(getActionSheet))
             longPressForActionSheet.minimumPressDuration = 0.1
             myMap.addGestureRecognizer(longPressForActionSheet)
-            
-        
+        if clickCounter%2 == 0{
+           
+            myMap.removeGestureRecognizer(longPressForActionSheet)
+            //add new pin
+            let longPressGestureRecogn = UILongPressGestureRecognizer(target: self, action:#selector(addAnnotation(press:)))
+            longPressGestureRecogn.minimumPressDuration=0.2
+            myMap.addGestureRecognizer(longPressGestureRecogn)
+        }
+       
     
 }
 
     
     @IBAction func ChanePlace(_ sender: UIButton) {
         
+        
+    
         
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -227,6 +249,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         objectAnnotation.title = "Go Go Go~ Where is my treasure?"
         self.myMap.addAnnotation(objectAnnotation)
        
+        
         let NPCOnepinLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(40, -74)
         NPCOnePin.coordinate = NPCOnepinLocation
         NPCOnePin.imageName = "NPCOne.ico"
@@ -234,6 +257,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         NPCOnePin.subtitle = "Good Morning,Good Afternoon and Good Evening"
         self.myMap.addAnnotation(NPCOnePin)
         
+        let NPCTwopinLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(37, -122)
+        NPCTwoPin.coordinate = NPCTwopinLocation
+        NPCTwoPin.imageName = "batgirlTwo.png"
+        NPCTwoPin.title = "Wana Date With Me ?"
+        NPCTwoPin.subtitle = ""
+        self.myMap.addAnnotation(NPCTwoPin)
         }
     
 
@@ -273,7 +302,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let optionalFourText = "Cancel"
         //decalre the actionsheet
         let actionSheet = UIAlertController(title: title, message: message,preferredStyle: UIAlertControllerStyle.actionSheet)
-        let ViewStatusActionSheet = UIAlertController(title: "Hi,Pokemon ", message: "Intelegent : 10            Health:10          Sight:10",preferredStyle: UIAlertControllerStyle.actionSheet)
+        let ViewStatusActionSheet = UIAlertController(title: "Pokemon Attribute", message: "Intelegent : 10            Health:10          Sight:10",preferredStyle: UIAlertControllerStyle.actionSheet)
         
         let actionFour = UIAlertAction(title: optionalFourText, style: .default, handler: nil)
         // declare a specific action
@@ -282,17 +311,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             self.present(ViewStatusActionSheet,animated: true,completion: nil)
         }
         let EditAction = UIAlertAction(title: "Search Around", style: .default) { (handler) in
-            //GO TO Result View
-            if self.treasureLatitude-self.finalLatitude<15 && self.treasureLongitude-self.finalLongitude<15{
-                self.performSegue(withIdentifier: "gotWinner", sender: sender)
-            }
-                
-                //GO TO HINT View
-            else{ self.performSegue(withIdentifier: "needHint", sender: sender)
-                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+            self.TreasureCounter = self.TreasureCounter+1
+           
+            //call Coredate to save numbers of treasure box
+            let thing = NSEntityDescription.insertNewObject(forEntityName: "PokemonEntity", into: self.managedObjectContext) as! PokemonEntity
+            thing.entitycounter = Int16(self.TreasureCounter)
+            
+           
+            
+            
+            
+            
+            if self.managedObjectContext.hasChanges {
+                do {
+                    try self.managedObjectContext.save()
+                    
+                    print("Success : \(thing)")
+                } catch {
+                    print("\(error)")
+                }
             }
         }
-        let DeleteAction = UIAlertAction(title: "Delete", style: .default) { (handler) in
+        let DeleteAction = UIAlertAction(title: "Call Jason", style: .default) { (handler) in
             
             
             
@@ -306,8 +346,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         //present the whole actionsheet
                self.present(actionSheet, animated: true, completion: nil)
     }
-  
-    
+  var TreasureCounter = 1
+    var EntityInMapView = [PokemonEntity]()
     @objc func addAnnotation(press:UILongPressGestureRecognizer){
         if press.state == .began {
             let location = press.location(in: myMap)
@@ -316,8 +356,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             let annotation = CustomPointAnnotation()
             annotation.coordinate = coordinates
             annotation.imageName = "\(imgRealName[imgeNameIndex!])"
-            annotation.title = "New of Me"
-            annotation.subtitle = "Keep Going"
+            annotation.title = "No, I should Go back to Coding......"
+            annotation.subtitle = ""
             
             myMap.addAnnotation(annotation)
         }
